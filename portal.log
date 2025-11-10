@@ -1,0 +1,23 @@
+2025-10-01 17:09:30,850 [INFO] [MAIL] preparing subject=[Portal Ingeniería] Nuevo Ticket #10 — NPU122 to=['andresgrey@gmail.com', 'aedmartinez@teco.com.ar'] cc=None attachments=['C:\\Users\\u609420.TELECOM\\Downloads\\Portal de Ingenierias\\uploads\\20251001_170930_20251001_121455_PAY0004508_Of._a_Personal_Pay.pdf']
+2025-10-01 17:09:31,303 [INFO] [MAIL] Sent via Outlook
+2025-10-01 17:14:10,980 [INFO] [MAIL] preparing subject=[Portal Ingeniería] Ticket #10 CERRADO — NPU122 to=['andresgrey@gmail.com', 'aedmartinez@teco.com.ar'] cc=['iga-notify@telecom.com.ar'] attachments=['C:\\Users\\u609420.TELECOM\\Downloads\\Portal de Ingenierias\\uploads\\20251001_170930_20251001_121455_PAY0004508_Of._a_Personal_Pay.pdf']
+2025-10-01 17:14:10,981 [WARNING] [MAIL] Error enviando por Outlook: (-2147221008, 'No se ha llamado a CoInitialize.', None, None); usando SMTP fallback.
+2025-10-01 17:14:11,146 [WARNING] [MAIL] Error enviando por SMTP: [Errno 11001] getaddrinfo failed
+2025-10-01 17:16:14,414 [INFO] [MAIL] preparing subject=[Portal Ingeniería] Nuevo Ticket #11 — CPU875 to=['aedmartinez@teco.com.ar', 'aedmartinez@teco.com.ar'] cc=None attachments=['C:\\Users\\u609420.TELECOM\\Downloads\\Portal de Ingenierias\\uploads\\20251001_171614_CPU875_ING_Estacion_Caballito_2_rev.2.pdf']
+2025-10-01 17:16:14,414 [WARNING] [MAIL] Error enviando por Outlook: (-2147221008, 'No se ha llamado a CoInitialize.', None, None); usando SMTP fallback.
+2025-10-01 17:16:14,445 [WARNING] [MAIL] Error enviando por SMTP: [Errno 11001] getaddrinfo failed
+2025-10-01 17:17:07,566 [INFO] [MAIL] preparing subject=[Portal Ingeniería] Ticket #11 CERRADO — CPU875 to=['aedmartinez@teco.com.ar', 'aedmartinez@teco.com.ar'] cc=['iga-notify@telecom.com.ar'] attachments=['C:\\Users\\u609420.TELECOM\\Downloads\\Portal de Ingenierias\\uploads\\20251001_171614_CPU875_ING_Estacion_Caballito_2_rev.2.pdf']
+2025-10-01 17:17:07,567 [WARNING] [MAIL] Error enviando por Outlook: (-2147221008, 'No se ha llamado a CoInitialize.', None, None); usando SMTP fallback.
+2025-10-01 17:17:07,600 [WARNING] [MAIL] Error enviando por SMTP: [Errno 11001] getaddrinfo failed
+2025-10-01 17:25:22,412 [INFO] [MAIL] preparing subject=[Portal Ingeniería] Ticket #9 CERRADO — CPU888 to=['aedmartinez@teco.com.ar', 'aedmartinez@teco.com.ar'] cc=['iga-notify@telecom.com.ar'] attachments=['C:\\Users\\u609420.TELECOM\\Downloads\\Portal de Ingenierias\\uploads\\20251001_143956_20251001_121455_PAY0004508_Of._a_Personal_Pay.pdf']
+2025-10-01 17:25:22,708 [INFO] [MAIL] Sent via Outlook
+2025-10-01 17:25:33,971 [INFO] [MAIL] preparing subject=[Portal Ingeniería] Ticket #8 CERRADO — CPU888 to=['andresgrey@gmail.com', 'aedmartinez@teco.com.ar'] cc=['iga-notify@telecom.com.ar'] attachments=['C:\\Users\\u609420.TELECOM\\Downloads\\Portal de Ingenierias\\uploads\\20251001_143828_20251001_121455_PAY0004508_Of._a_Personal_Pay.pdf']
+2025-10-01 17:25:34,166 [INFO] [MAIL] Sent via Outlook
+2025-10-01 17:26:01,948 [INFO] [MAIL] preparing subject=[Portal Ingeniería] Nuevo Ticket #12 — CPU875 to=['aedmartinez@teco.com.ar', 'aedmartinez@teco.com.ar'] cc=None attachments=['C:\\Users\\u609420.TELECOM\\Downloads\\Portal de Ingenierias\\uploads\\20251001_172601_CPU875_ING_Estacion_Caballito_2_rev.2.pdf']
+2025-10-01 17:26:02,953 [INFO] [MAIL] Sent via Outlook
+2025-10-01 17:30:29,810 [INFO] [MAIL] preparing subject=[Portal Ingeniería] Ticket #12 CERRADO — CPU875 to=['aedmartinez@teco.com.ar', 'aedmartinez@teco.com.ar'] cc=['iga-notify@telecom.com.ar'] attachments=['C:\\Users\\u609420.TELECOM\\Downloads\\Portal de Ingenierias\\uploads\\20251001_172601_CPU875_ING_Estacion_Caballito_2_rev.2.pdf']
+2025-10-01 17:30:31,037 [INFO] [MAIL] Sent via Outlook
+2025-10-14 15:51:31,852 [INFO] [MAIL] preparing subject=[Portal Ingeniería] Nuevo Ticket #13 — NPU122 to=['aedmartinez@teco.com.ar', 'aedmartinez@teco.com.ar'] cc=None attachments=['C:\\Users\\u609420.TELECOM\\Downloads\\Portal de Ingenierias\\uploads\\20251014_155131_CPU046_Parque_Saavedra_RSH_4G-5G_Rev_0.pdf']
+2025-10-14 15:51:32,283 [INFO] [MAIL] Sent via Outlook
+2025-10-14 15:52:55,699 [INFO] [MAIL] preparing subject=[Portal Ingeniería] Ticket #13 CERRADO — NPU122 to=['aedmartinez@teco.com.ar', 'aedmartinez@teco.com.ar'] cc=['iga-notify@telecom.com.ar'] attachments=['C:\\Users\\u609420.TELECOM\\Downloads\\Portal de Ingenierias\\uploads\\20251014_155131_CPU046_Parque_Saavedra_RSH_4G-5G_Rev_0.pdf']
+2025-10-14 15:52:56,358 [INFO] [MAIL] Sent via Outlook
