@@ -48,7 +48,7 @@ ENABLE_CREATE_ATTACH_PDF = os.getenv("ENABLE_CREATE_ATTACH_PDF", "1").lower() in
 ENABLE_CLOSE_ATTACH_PDF  = os.getenv("ENABLE_CLOSE_ATTACH_PDF",  "1").lower() in ("1","true","yes","y","on")
 
 # Protección admin / portal
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")
+ADMIN_PASSWORD = "admin123"
 PORTAL_PASSWORD = os.getenv("PORTAL_PASSWORD", "portal123")
 
 # Constantes
@@ -298,6 +298,14 @@ TEMPLATES = {
           </div>
         </div>
       </div>
+
+      <!-- Password admin solo para eliminar ticket -->
+      <div class="mb-2">
+        <label class="form-label">Password admin (solo para eliminar ticket)</label>
+        <input type="password" class="form-control form-control-sm" id="adminPwdInput" placeholder="********">
+        <small class="text-muted">Solo quien conoce la contraseña de administrador puede eliminar tickets.</small>
+      </div>
+
       <div class="d-flex gap-2 mb-3">
         {% if t['pdf_filename'] %}
           <a class="btn btn-outline-secondary" href="{{ url_for('download_pdf', filename=t['pdf_filename']) }}">Descargar PDF</a>
@@ -307,9 +315,33 @@ TEMPLATES = {
             <button class="btn btn-success" type="submit">Cerrar caso (Completado)</button>
           </form>
         {% endif %}
+
+        <form id="deleteForm"
+              method="post"
+              action="{{ url_for('delete_ticket', ticket_id=t['id']) }}"
+              onsubmit="return confirm('⚠ Esta acción eliminará el ticket y su PDF. ¿Confirmás?');">
+          <input type="hidden" name="admin_password" id="adminPwdHidden">
+          <button class="btn btn-danger" type="submit">Eliminar ticket</button>
+        </form>
+
         <a class="btn btn-light" href="{{ url_for('search') }}">Volver</a>
       </div>
+
+      <script>
+        (function() {
+          const input = document.getElementById('adminPwdInput');
+          const hidden = document.getElementById('adminPwdHidden');
+          const deleteForm = document.getElementById('deleteForm');
+
+          if (deleteForm && input && hidden) {
+            deleteForm.addEventListener('submit', function() {
+              hidden.value = input.value;
+            });
+          }
+        })();
+      </script>
     {% endblock %}
+    
     """,
     "search.html": r"""
     {% extends 'layout.html' %}
@@ -934,6 +966,45 @@ def close_ticket(ticket_id: int):
     conn.close()
     return redirect(url_for("ticket_detail", ticket_id=ticket_id))
 
+
+
+@app.post("/tickets/<int:ticket_id>/delete")
+@login_required
+def delete_ticket(ticket_id: int):
+    """Elimina un ticket y su PDF asociado. Protegido por password de administrador."""
+    password = request.form.get("admin_password", "")
+    if password != ADMIN_PASSWORD:
+        flash("Password admin incorrecta.", "warning")
+        return redirect(url_for("ticket_detail", ticket_id=ticket_id))
+
+    conn = db_connect()
+    cur = conn.cursor()
+    cur.execute("SELECT pdf_filename, site_name FROM tickets WHERE id=?", (ticket_id,))
+    row = cur.fetchone()
+
+    if not row:
+        conn.close()
+        flash("Ticket no encontrado.", "warning")
+        return redirect(url_for("home"))
+
+    pdf_filename = row["pdf_filename"]
+    site_name = row["site_name"]
+
+    cur.execute("DELETE FROM tickets WHERE id=?", (ticket_id,))
+    conn.commit()
+    conn.close()
+
+    # Borrar archivo PDF si existe
+    if pdf_filename:
+        pdf_path = UPLOAD_FOLDER / pdf_filename
+        try:
+            if pdf_path.exists():
+                pdf_path.unlink()
+        except Exception as e:
+            logger.warning(f"[DELETE] No se pudo borrar el archivo {pdf_path}: {e}")
+
+    flash(f"Ticket #{ticket_id} ({site_name}) eliminado definitivamente.", "success")
+    return redirect(url_for("home"))
 
 @app.route("/search")
 @login_required
