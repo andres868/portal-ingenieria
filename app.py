@@ -1238,9 +1238,9 @@ def debug_log():
 # ------------------------------
 # Inicialización
 # ------------------------------
-if __name__ == "__main__":
+def bootstrap_db():
+    """Crea la base y carga semillas si hace falta."""
     init_db()
-    # Semillas opcionales
     conn = db_connect()
     cur = conn.cursor()
     # Tipos default
@@ -1262,5 +1262,11 @@ if __name__ == "__main__":
     conn.commit()
     conn.close()
 
-    # Ejecutar
+
+# Ejecutar siempre que se importe el módulo (local y en Render)
+bootstrap_db()
+
+
+if __name__ == "__main__":
+    # Solo para ejecución local directa
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", "5006")), debug=True, threaded=False, use_reloader=False)
